@@ -181,8 +181,11 @@ void print_time(void)
     ESP_LOGI(TAG, "Current time: %s", time_buffer);
 
     // Update counter part
-    display.fillRect(50, 40, 78, 8, 0); // Clear the area for counter
-    display.setCursor(50, 40);
+    // display.fillRect(50, 40, 78, 8, 0); // Clear the area for counter
+    // List of built in fonts https://m5stack.lang-ship.com/howto/m5gfx/font/
+    display.clear();
+    display.setFont(&fonts::Orbitron_Light_32);
+    display.setCursor(20, 10);
     display.printf(time_buffer);
 }
 
@@ -217,12 +220,12 @@ extern "C" void app_main(void)
     display.clear();
     
     // Show greeting text
-    display.setCursor(0, 0);
-    display.println("ESP32-C3 with SSD1309");
-    display.println("128x64 OLED Display");
-    display.println("");
-    display.println("Hello World!");
-    display.println("");
+    display.setCursor(20, 20);
+    display.println("Starting up...");
+    // display.println("128x64 OLED Display");
+    // display.println("");
+    // display.println("Hello World!");
+    // display.println("");
 
     time_buffer_current[0] = '\0';
     
